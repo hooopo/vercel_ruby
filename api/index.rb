@@ -3,7 +3,7 @@ require "cowsay"
 Handler = proc { |req, res|
   res.status = 200
   res["Content-Type"] = "text/text; charset=utf-8"
-  puts ENV['A']
+  puts ENV["DATABASE_URL"]
   if req.query.has_key?("name")
     name = req.query["name"]
     res.body = Cowsay.say "Hello, #{name}!", "cow"
